@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Post</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+@extends('layouts.main')
+@section('title', 'Create Page')
+
+@section('content')
     <div class="container mt-5">
         <div class="row justify-content-center">
             <div class="col-md-8">
@@ -40,6 +35,15 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="user_id">User</label>
+                                <select name="user_id" id="user_id" class="form-control">
+                                    @foreach($users as $user)
+                                        <option value="{{$user->id}}">{{$user->name}}</option>
+                                    @endforeach
+                                </select>
+                            </div>
+
+                            <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Create</button>
                             </div>
                         </form>
@@ -48,5 +52,4 @@
             </div>
         </div>
     </div>
-</body>
-</html>
+@endsection

@@ -1,17 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+@extends('layouts.main')
+@section('title', 'Index Page')
+
+@section('content')
     <table class="table">
         <thead class="thead-dark">
             <tr>
                 <th>ID</th>
                 <th>Title</th>
+                <th>User</th>
                 <th>Enabled</th>
                 <th>Published At</th>
                 <th>Actions</th>
@@ -22,6 +18,7 @@
             <tr>
                 <td>{{$post->id}}</td>
                 <td><a href="{{ route('posts.show', $post->id) }}">{{$post->title}}</a></td>
+                <td>{{$post->user->name}}</td>
                 <td>{{$post->enabled}}</td>
                 <td>{{$post->published_at}}</td>
                 <td>
@@ -39,5 +36,5 @@
             @endforeach
         </tbody>
     </table>
-</body>
-</html>
+@endsection
+

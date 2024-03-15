@@ -13,9 +13,9 @@
             <div class="card-body">
                 <p class="card-text"><strong>ID:</strong> {{ $post->id }}</p>
                 <p class="card-text"><strong>Title:</strong> {{ $post->title }}</p>
+                <p class="card-text"><strong>User:</strong> {{ $post->user->name }}</p>
                 <p class="card-text"><strong>Enabled:</strong> {{ $post->enabled }}</p>
                 <p class="card-text"><strong>Published At:</strong> {{ $post->published_at }}</p>
-                <!-- Add more fields as needed -->
             </div>
         </div>
     </div>
