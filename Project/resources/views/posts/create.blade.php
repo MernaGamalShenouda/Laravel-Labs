@@ -34,14 +34,14 @@
                                 </div>
                             </div>
 
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <label for="user_id">User</label>
                                 <select name="user_id" id="user_id" class="form-control">
                                     @foreach($users as $user)
                                         <option value="{{$user->id}}">{{$user->name}}</option>
                                     @endforeach
                                 </select>
-                            </div>
+                            </div> -->
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Create</button>

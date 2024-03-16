@@ -8,6 +8,7 @@
                 <th>ID</th>
                 <th>Title</th>
                 <th>User</th>
+                <th>User ID</th>
                 <th>Enabled</th>
                 <th>Published At</th>
                 <th>Actions</th>
@@ -19,6 +20,7 @@
                 <td>{{$post->id}}</td>
                 <td><a href="{{ route('posts.show', $post->id) }}">{{$post->title}}</a></td>
                 <td>{{$post->user->name}}</td>
+                <td>{{$post->user->id}}</td>
                 <td>{{$post->enabled}}</td>
                 <td>{{$post->published_at}}</td>
                 <td>
@@ -36,5 +38,6 @@
             @endforeach
         </tbody>
     </table>
+    {!! $posts ->links() !!}
 @endsection
 

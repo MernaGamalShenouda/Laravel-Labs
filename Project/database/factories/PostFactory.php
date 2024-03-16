@@ -19,6 +19,7 @@ class PostFactory extends Factory
         return [
             'title' => fake()->unique()->text(50),
             'body' => fake()->paragraph(50),
+            'user_id' => rand(1, 20),
             'enabled' => true,
             'published_at' => fake()->dateTime()
         ];

@@ -26,6 +26,9 @@
                         <a class="dropdown-item" href="{{ route('posts.create') }}">New Post</a>
                     </div>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('users.index') }}">Users</a>
+                </li>
             </ul>
         </div>
     </nav>
