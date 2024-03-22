@@ -11,6 +11,7 @@
                 <th>User ID</th>
                 <th>Enabled</th>
                 <th>Published At</th>
+                <th>Image URL</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -23,6 +24,7 @@
                 <td>{{$post->user->id}}</td>
                 <td>{{$post->enabled}}</td>
                 <td>{{$post->published_at}}</td>
+                <td style="max-width: 100px; overflow: hidden; text-overflow: ellipsis;">{{$post->image}}</td>
                 <td>
                     <!-- Edit Button -->
                     <a href="{{ route('posts.edit', $post->id) }}" class="btn btn-primary btn-sm">Edit</a>
