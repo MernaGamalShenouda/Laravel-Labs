@@ -1,12 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Show Post</title>
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
-</head>
-<body>
+@extends('layouts.main')
+@section('title', 'Index Page')
+
+@section('content')
     <div class="container mt-5">
         <h1>Show Post</h1>
         <div class="card">
@@ -16,8 +11,12 @@
                 <p class="card-text"><strong>User:</strong> {{ $post->user->name }}</p>
                 <p class="card-text"><strong>Enabled:</strong> {{ $post->enabled }}</p>
                 <p class="card-text"><strong>Published At:</strong> {{ $post->published_at }}</p>
+                @if($post->image)
+                    <div class="post-image">
+                        <img src="{{ Storage::disk('public')->url($post->image)}}" alt="Post-Image">
+                    </div>
+                @endif
             </div>
         </div>
     </div>
-</body>
-</html>
+@endsection

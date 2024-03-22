@@ -9,7 +9,7 @@
                     <div class="card-header">Create Post</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('posts.store') }}">
+                        <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group">
@@ -34,14 +34,10 @@
                                 </div>
                             </div>
 
-                            <!-- <div class="form-group">
-                                <label for="user_id">User</label>
-                                <select name="user_id" id="user_id" class="form-control">
-                                    @foreach($users as $user)
-                                        <option value="{{$user->id}}">{{$user->name}}</option>
-                                    @endforeach
-                                </select>
-                            </div> -->
+                            <div class="form-group">
+                                <label for="post-image">Image</label>
+                                <input type="file" name="image" id="post-image" class="form-control-file">
+                            </div>
 
                             <div class="form-group">
                                 <button type="submit" class="btn btn-primary">Create</button>

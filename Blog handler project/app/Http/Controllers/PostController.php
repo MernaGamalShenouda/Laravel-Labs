@@ -31,7 +31,19 @@ class PostController extends Controller
             'body' => 'required|string',
             'enabled' => 'nullable|boolean',
             'published_at' => 'nullable|date',
+            'image' => 'nullable|image',
         ]);
+
+        $imagePath = null;
+
+        if ($request->hasFile('image')) {
+            // Ensure the uploaded file is valid
+            if ($request->file('image')->isValid()) {
+                // Store the image and get the path
+                $imagePath = $request->file('image')->store('posts', ['disk' => 'public']);
+            }
+        }
+
 
         // Create a new Post instance
         $post = new \App\Models\Post();
@@ -40,8 +52,11 @@ class PostController extends Controller
         $post->body = $validatedData['body'];
         $post->enabled = $validatedData['enabled'] ?? false; // Default value if not provided
         $post->published_at = $validatedData['published_at'];
+        $post->image = $imagePath;
 
         $post->save();
+
+        return redirect()->route('posts.show',['id' => $post->id]);
     }
 
     public function edit(string $id) {
